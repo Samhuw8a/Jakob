@@ -8,16 +8,16 @@ class Settings():
 
     def is_valid(self,setts:dict)->dict:
         cur:dict = self.backup_settings
-        for i,j in zip(cur,setts):
+        if len(cur)!=len(setts):
+            return cur
+
+        for i,j in zip(cur.keys(),setts.keys()):
             if i!=j:
                 return cur
-                print("Backup")
-        print("Config")
         return setts
 
     @property
     def backup_settings(self)->dict:
-        print(self.backup_path)
         with open(self.backup_path,"r") as f:
             config = yaml.load(f,Loader=yaml.FullLoader)
         return config
@@ -29,6 +29,10 @@ class Settings():
         return self.is_valid(config)
 
     def write(self,sett:dict)->None:
+        if self.is_valid(sett) == sett:
+            with open(self.backup_path,"w") as f:
+               yaml.dump(sett,f)
+
         with open(self.path,"w") as f:
            yaml.dump(sett,f)
             
@@ -51,8 +55,8 @@ def main()->None:
     h = Handler("Config.yaml")
     c  =h.get_conf()
     print(c)
-    #  c["test"]=False
-    #  h.set_conf(c)
+    c["test"]=False
+    h.set_conf(c)
     
 if __name__=='__main__':
     main()
