@@ -1,2 +1,7 @@
-cof: true
-test: false
+backgroud_colour: '#101c30'
+font: Arial
+fontsz: 13
+foregroud_colour: '#f2d8b8'
+mess_methode: Apian
+stab_hoehe: 5.0
+stab_laenge: 2.0
