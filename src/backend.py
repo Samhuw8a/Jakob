@@ -4,7 +4,7 @@ class Settings():
     #TODO:Backup comparison
     def __init__(self,path:str,backup_path:str)->None:
         self.path:str = path
-        self.backup_path:str = "Backup.yaml"
+        self.backup_path:str = backup_path
 
     def is_valid(self,setts:dict)->dict:
         cur:dict = self.backup_settings
@@ -38,9 +38,9 @@ class Settings():
             
 
 class Handler():
-    def __init__(self,settings_path:str):
+    def __init__(self,settings_path:str,backup_path:str):
         self.settings_path = settings_path
-        self.conf= Settings(settings_path,"Config.yaml")
+        self.conf= Settings(settings_path,backup_path)
 
     def solve(self,height:float,distance:float)->float:
         return 0.0
