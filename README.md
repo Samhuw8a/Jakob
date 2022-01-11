@@ -1,5 +1,6 @@
 # Jakobsstab
 Ein Mathe Projekt zum Jakobsstab
 
-#Dependencies
+# Dependencies
 - pyyaml
+- tkinter
