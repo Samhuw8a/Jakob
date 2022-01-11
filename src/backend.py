@@ -12,8 +12,8 @@ class Settings():
             if i!=j:
                 return cur
                 print("Backup")
+        print("Config")
         return setts
-        print("Backup")
 
     @property
     def backup_settings(self)->dict:
