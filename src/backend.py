@@ -70,8 +70,8 @@ class Handler():
 
 def main()->None:
     h = Handler("Config.yaml","Backup.yaml")
-    c  =h.get_conf()
-    print(h.solve(1.0,10))
+    c = h.get_conf()
+    print(c)
     h.set_conf(c)
     
 if __name__=='__main__':
