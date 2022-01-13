@@ -1,5 +1,6 @@
 from tkinter import *
 from backend import *
+from tkinter.colorchooser import askcolor
 
 class SettingsWindow(Toplevel):
 
@@ -10,6 +11,7 @@ class SettingsWindow(Toplevel):
 
         self.save_button=Button(self,text="speichern",command=self.set_conf)
         self.save_button.pack()
+        
         self.get_conf()
         self.set_style()
 
