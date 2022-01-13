@@ -69,7 +69,7 @@ class Handler():
         self.conf.write(sett)
 
 def main()->None:
-    h = Handler("src/Config.yaml","src/Backup.yaml")
+    h = Handler("Config.yaml","Backup.yaml")
     c = h.get_conf()
     print(c)
     h.set_conf(c)

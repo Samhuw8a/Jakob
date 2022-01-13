@@ -1,5 +1,6 @@
 from tkinter import *
 from backend import *
+from tkinter.colorchooser import askcolor
 
 class SettingsWindow(Toplevel):
 
@@ -9,18 +10,23 @@ class SettingsWindow(Toplevel):
         self.title("Einstellungen")
 
         self.save_button=Button(self,text="speichern",command=self.set_conf)
-        self.save_button.pack()
+        self.save_button.grid(row=3,column=2)
         
+        self.choose_background_but=Button(self,text=" Hintergrund",command=self.choose_background_color,width=10)
+        self.choose_background_but.grid(row=1,column=1)
+        self.choose_foreground_but=Button(self,text="Schrifftfarbe",command=self.choose_foreground_color,width=10)
+        self.choose_foreground_but.grid(row=2,column=1)
         self.get_conf()
         self.set_style()
 
     def set_conf(self):
-        self.root_window.set_config({'backgroud_colour': '#070707', 'font': 'Arial', 'fontsz': 13, 'foregroud_colour': '#f2d8b8', 'mess_methode': 'Apian', 'stab_hoehe': 5.0, 'stab_laenge': 2.0})
+        self.root_window.set_config(self.new_conf)
         self.get_conf()
         self.set_style()
 
     def get_conf(self):
         conf=self.root_window.get_config()
+        self.new_conf=conf
         self.bg=conf["backgroud_colour"]
         self.fg=conf["foregroud_colour"]
         self.font=(conf["font"],conf["fontsz"])
@@ -28,6 +34,14 @@ class SettingsWindow(Toplevel):
     def set_style(self):
         self.config(bg=self.bg)
         self.save_button.config(bg=self.bg,fg=self.fg,font=self.font)
+        self.choose_foreground_but.config(bg=self.bg,fg=self.fg,font=self.font)
+        self.choose_background_but.config(bg=self.bg,fg=self.fg,font=self.font)
+    def choose_background_color(self):
+        self.new_conf["backgroud_colour"]=askcolor(parent=self)[1]
+
+    def choose_foreground_color(self):
+        self.new_conf["foregroud_colour"]=askcolor(parent=self)[1]
+        
 
 
 class Window(Tk):
