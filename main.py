@@ -1,10 +1,8 @@
-import backend
-#  import frontend
+import src.backend as backend
 
 def main()->None:
-    path="src/" if 0 else ""
+    path="src/"
     handler = backend.Handler(path+"Config.yaml",path+"Backup.yaml")
-    print(handler.get_conf())
 
 if __name__=='__main__':
     main()
