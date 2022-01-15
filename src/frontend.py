@@ -1,5 +1,5 @@
 from tkinter import *
-from backend import *
+#  from backend import *
 from tkinter.colorchooser import askcolor
 
 class SettingsWindow(Toplevel):
