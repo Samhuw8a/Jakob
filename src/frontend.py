@@ -1,11 +1,5 @@
 from tkinter import *
-<<<<<<< HEAD
-#from backend import *
-=======
-#  from backend import *
->>>>>>> 19e06cf4853eb8ab22ce68b42d62a0a801dbd20c
 from tkinter.colorchooser import askcolor
-
 from backend import Handler
 
 
