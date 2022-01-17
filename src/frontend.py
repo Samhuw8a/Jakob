@@ -1,9 +1,5 @@
 from tkinter import *
 from tkinter.colorchooser import askcolor
-from backend import Handler
-
-
-
 
 class SettingsWindow(Toplevel):
 
@@ -163,7 +159,8 @@ class Window(Tk):
     
 
 def main():
-    window=Window(Handler("Config.yaml","Backup.yaml"))
+    from backend import Handler
+    window=Window(Handler("src/Config.yaml","src/Backup.yaml"))
     
 
 if __name__ == '__main__':
