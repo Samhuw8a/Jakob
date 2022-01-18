@@ -1,2 +1,2 @@
-run: src/main.py
-	python3 src/main.py
+run: main.py
+	python3 main.py
