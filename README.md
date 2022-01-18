@@ -6,6 +6,7 @@ Ein Mathe Projekt zum Jakobsstab
 - python3
 - pyyaml
 - tkinter
+- patchelf
 
 # Instalation
 > Selber bauen
