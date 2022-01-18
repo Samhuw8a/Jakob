@@ -12,6 +12,8 @@ class SettingsWindow(Toplevel):
 
         self.save_button=Button(self,text="speichern",command=self.set_conf)
         self.save_button.grid(row=2,column=2)
+
+        
         
         self.choose_background_but=Button(self,text=" Hintergrund",command=self.choose_background_color,width=15)
         self.choose_background_but.grid(row=1,column=0)
@@ -23,6 +25,8 @@ class SettingsWindow(Toplevel):
 
     def set_conf(self):
         self.new_conf["mess_methode"]=self.aktuell_mess_methode.get()
+        
+    
         self.root_window.set_config(self.new_conf)
         self.get_conf()
         self.set_style()
