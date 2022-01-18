@@ -7,9 +7,9 @@ class Settings():
         self.backup_path:str = backup_path
 
     def ret_valid(self,setts:dict)->dict:
-        cur:dict = self.backup_settings
-        if cur.keys()!=setts.keys():
-            return cur
+        back:dict = self.backup_settings
+        if back.keys()!=setts.keys():
+            return back
         return setts
 
     def read_conf(self,path:str)->dict:
@@ -26,7 +26,7 @@ class Settings():
         res = self.read_conf(self.path)
         return self.ret_valid(res)
 
-    def write(self,sett:dict)->None:
+    def write_config(self,sett:dict)->None:
         if self.ret_valid(sett) == sett:
             with open(self.backup_path,"w") as f:
                yaml.dump(sett,f)
@@ -66,10 +66,10 @@ class Handler():
         return self.conf.settings
 
     def set_conf(self,sett:dict)->None:
-        self.conf.write(sett)
+        self.conf.write_config(sett)
 
 def main()->None:
-    h = Handler("src/Config.yaml","src/Backup.yaml")
+    h = Handler("Config.yaml","Backup.yaml")
     c = h.get_conf()
     print(c)
     h.set_conf(c)
