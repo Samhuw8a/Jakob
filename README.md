@@ -2,6 +2,7 @@
 Ein Mathe Projekt zum Jakobsstab
 
 # Dependencies
+- cx_Freeze
 - python3
 - pyyaml
 - tkinter
