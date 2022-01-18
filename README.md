@@ -11,7 +11,7 @@ Ein Mathe Projekt zum Jakobsstab
 > ---
 > - `git clone https://github.com/Samhuw8a/Jakob.git`
 > - `cd Jakob`
-> - `python3 main.py`
+> - `sudo make compile`
 
 # Bildquellen
 - https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Jakob-04.png/750px-Jakob-04.png
