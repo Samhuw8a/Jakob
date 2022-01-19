@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter.colorchooser import askcolor
+import sys
 
 class SettingsWindow(Toplevel):
 
@@ -9,11 +10,25 @@ class SettingsWindow(Toplevel):
         self.title("Einstellungen")
         self.get_conf()
         self.make_mess_methode_menu()
+        if sys.platform.startswith('win'): 
+            self.iconbitmap('Icons/icon.ico')
+            
+        else:
+            logo = PhotoImage(file='Icons/icon.gif')
+            self.call('wm', 'iconphoto', self._w, logo)
 
         self.save_button=Button(self,text="speichern",command=self.set_conf)
         self.save_button.grid(row=2,column=2)
 
-        
+        self.a_entry=Entry(self)
+        self.a_entry.grid(row=2,column=1)
+        self.b_entry=Entry(self)
+        self.b_entry.grid(row=3,column=1)
+
+        self.a_lab=Label(self,text="a:")
+        self.a_lab.grid(row=2,column=0)
+        self.b_lab=Label(self,text="b:")
+        self.b_lab.grid(row=3,column=0)
         
         self.choose_background_but=Button(self,text=" Hintergrund",command=self.choose_background_color,width=15)
         self.choose_background_but.grid(row=1,column=0)
@@ -25,8 +40,18 @@ class SettingsWindow(Toplevel):
 
     def set_conf(self):
         self.new_conf["mess_methode"]=self.aktuell_mess_methode.get()
-        
-    
+        try:
+            self.new_conf["stab_hoehe"]=float(self.b_entry.get())
+
+        except :
+            pass
+
+        try:
+            self.new_conf["stab_laenge"]=float(self.a_entry.get())
+
+        except :
+            pass
+            
         self.root_window.set_config(self.new_conf)
         self.get_conf()
         self.set_style()
@@ -39,15 +64,21 @@ class SettingsWindow(Toplevel):
         self.font=(conf["font"],conf["fontsz"])
         self.aktuell_mess_methode=StringVar(self)
         self.aktuell_mess_methode.set(conf["mess_methode"])
+        
               
 
     def set_style(self):
         self.config(bg=self.bg)
+        
         self.save_button.config(bg=self.bg,fg=self.fg,font=self.font)
         self.choose_foreground_but.config(bg=self.bg,fg=self.fg,font=self.font)
         self.choose_background_but.config(bg=self.bg,fg=self.fg,font=self.font)
         self.mess_methode_menu.config(bg=self.bg,fg=self.fg,font=self.font)
         self.mess_methode_lab.config(bg=self.bg,fg=self.fg,font=self.font)
+        self.a_entry.config(bg=self.bg,fg=self.fg,font=self.font)
+        self.b_entry.config(bg=self.bg,fg=self.fg,font=self.font)
+        self.a_lab.config(bg=self.bg,fg=self.fg,font=self.font)
+        self.b_lab.config(bg=self.bg,fg=self.fg,font=self.font)
 
     def choose_background_color(self):
         self.new_conf["backgroud_colour"]=askcolor(parent=self)[1]
@@ -74,6 +105,12 @@ class Window(Tk):
         _=self.get_config()
         self.make_menu()
         self.make_entry_frame()
+        if sys.platform.startswith('win'): 
+            self.iconbitmap('Icons/icon.ico')
+            
+        else:
+            logo = PhotoImage(file='Icons/icon.gif')
+            self.call('wm', 'iconphoto', self._w, logo)
         
     
         self.result_lab=Label(self)

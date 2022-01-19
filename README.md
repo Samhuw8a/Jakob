@@ -7,6 +7,7 @@ Ein Mathe Projekt zum Jakobsstab
 - pyyaml
 - tkinter
 - patchelf
+- sys
 
 # Instalation
 > Selber bauen
@@ -18,4 +19,5 @@ Ein Mathe Projekt zum Jakobsstab
 # Bildquellen
 - https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Jakob-04.png/750px-Jakob-04.png
 - https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Jakob-03.png/750px-Jakob-03.png
+
 
