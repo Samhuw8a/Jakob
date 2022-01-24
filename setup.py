@@ -15,5 +15,6 @@ setup(
     version = "0.1",
     description = "Jakobsstab Projekt",
     options = {"build_exe": build_exe_options},
+    
     executables = [Executable("Jakobsstab.py", base=base)]
 )
